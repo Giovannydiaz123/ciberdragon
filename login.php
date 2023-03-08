@@ -1,3 +1,12 @@
+<?php
+error_reporting(E_ALL ^ E_DEPRECATED);
+header("content-Type: text/html; charset=UTF-8");
+
+session_start();
+session_destroy();
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 

@@ -1,3 +1,19 @@
+<?php
+error_reporting(E_ALL ^ E_DEPRECATED);
+header("content-Type: text/html; charset=UTF-8");
+
+session_start();
+
+
+$correoTabla = isset($_SESSION['$correoTabla']) ? $_SESSION['$correoTabla'] : '';
+
+if ($correoTabla === '') {
+  echo '<script>window.location="login.php"</script>';
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -78,7 +94,7 @@
                 
                 <nav class="navbar navbar-expand-lg bg-body-tertiary">
                     <div class="container-fluid">
-                      <a class="navbar-brand" href="#">TUVSA</a>
+                      <a class="navbar-brand" href="#">TUVSA <?php echo $_SESSION['$correoTabla'];?></a>
                       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                       </button>
@@ -103,6 +119,9 @@
                           </li>
                           <li class="nav-item">
                             <a class="nav-link disabled">Login</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="login.php">Salir</a>
                           </li>
                         </ul>
                         
